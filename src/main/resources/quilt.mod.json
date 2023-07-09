@@ -9,7 +9,7 @@
 			"description": "A short description of your mod.",
 			"contributors": {
 				"Kyrie": "Modeler",
-				"Quote": "Lead Programmer"
+				"Quote": "Programmer"
 			},
 			"contact": {
 				"homepage": "https://modrinth.com/mod/alpha-weapons",
@@ -20,7 +20,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.alphasquad.alpha_weapons.Alpha_WeaponsMain"
+			"init": "com.alphasquad.alpha_weapons.Alpha_WeaponsMain",
+			"client": "com.alphasquad.alpha_weapons.Alpha_WeaponsClient"
 		},
 		"depends": [
 			{
