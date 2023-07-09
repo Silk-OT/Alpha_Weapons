@@ -1,25 +1,26 @@
 {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "com.example",
-		"id": "example_mod",
+		"group": "com.alphasquad",
+		"id": "alpha_weapons",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
+			"name": "Alpha Weapons",
 			"description": "A short description of your mod.",
 			"contributors": {
-				"Your name here": "Owner"
+				"Kyrie": "Modeler",
+				"Quote": "Lead Programmer"
 			},
 			"contact": {
-				"homepage": "https://example.com/",
-				"issues": "https://github.com/QuiltMC/quilt-template-mod/issues",
-				"sources": "https://github.com/QuiltMC/quilt-template-mod"
+				"homepage": "https://modrinth.com/mod/alpha-weapons",
+				"issues": "https://github.com/Silk-OT/Alpha_Weapons/issues",
+				"sources": "https://github.com/Silk-OT/Alpha_Weapons"
 			},
 			"icon": "assets/example_mod/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.example.example_mod.ExampleMod"
+			"init": "com.alphasquad.alpha_weapons.Alpha_WeaponsMain"
 		},
 		"depends": [
 			{
@@ -36,5 +37,5 @@
 			}
 		]
 	},
-	"mixin": "example_mod.mixins.json"
+	"mixin": "alpha_weapons.mixins.json"
 }
