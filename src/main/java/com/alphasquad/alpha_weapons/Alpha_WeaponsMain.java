@@ -1,6 +1,6 @@
 package com.alphasquad.alpha_weapons;
 
-import com.alphasquad.alpha_weapons.item.ModItems;
+import com.alphasquad.alpha_weapons.item.ModWeapons;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -16,6 +16,6 @@ public class Alpha_WeaponsMain implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		ModItems.registerModItems();
+		ModWeapons.registerModItems();
 	}
 }
