@@ -2,7 +2,7 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "com.alphasquad",
-		"id": "alpha_weapons",
+		"id": "alphaweapons",
 		"version": "${version}",
 		"metadata": {
 			"name": "Alpha Weapons",
@@ -20,8 +20,7 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "com.alphasquad.alpha_weapons.Alpha_WeaponsMain",
-			"client": "com.alphasquad.alpha_weapons.Alpha_WeaponsClient"
+			"init": "com.alphasquad.alpha_weapons.Alpha_WeaponsMain"
 		},
 		"depends": [
 			{

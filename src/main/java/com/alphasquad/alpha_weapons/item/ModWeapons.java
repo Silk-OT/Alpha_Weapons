@@ -1,34 +1,39 @@
 package com.alphasquad.alpha_weapons.item;
 
 import com.alphasquad.alpha_weapons.Alpha_WeaponsMain;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
 /*
 	The purpose of ModWeapons.java is to register and add all new weapons that Alpha_Weapons provides.
 	Any non-weapon items should instead be added to ModItems.java.
-	TODO: Maybe move the registering of items func into a third file both can access?
  */
 public class ModWeapons {
-/*
-	RANGED SECTION
- */
-	public static final Item SHOTGUN_PLACEHOLDER = registerItem( "SHOTGUN_PLACEHOLDER", new Item(new QuiltItemSettings(
+	/*
+		RANGED SECTION
+	 */
+	public static final Item shotgun_placeholder = registerItem( "shotgun_placeholder", new Item(new QuiltItemSettings(
 		//TODO Add to Weapon Group (may not be here)
 	)));
-	public static final Item RIFLE_PLACEHOLDER = registerItem( "RIFLE_PLACEHOLDER", new Item(new QuiltItemSettings(
+
+	public static final Item rifle_placeholder = registerItem( "rifle_placeholder", new Item(new QuiltItemSettings(
 		//TODO Add to Weapon Group (may not be here)
 	)));
-	public static final Item PISTOL_PLACEHOLDER = registerItem( "PISTOL_PLACEHOLDER", new Item(new QuiltItemSettings(
+	public static final Item pistol_placeholder = registerItem( "pistol_placeholder", new Item(new QuiltItemSettings(
 		//TODO Add to Weapon Group (may not be here)
 	)));
 /*
 	MELEE SECTION
  */
-	public static final Item SWORD_PLACEHOLDER = registerItem( "SWORD_PLACEHOLDER", new Item(new QuiltItemSettings(
+	public static final Item sword_placeholder = registerItem( "sword_placeholder", new Item(new QuiltItemSettings(
 		//TODO Add to Weapon Group (may not be here)
 	)));
 
@@ -37,7 +42,23 @@ public class ModWeapons {
 	private static Item registerItem(String name, Item item) {
 		return Registry.register(Registries.ITEM, new Identifier(Alpha_WeaponsMain.MOD_ID, name), item);
 	}
-	public static void registerModItems() { //referenced in Main's 'OnInitialize'
+
+	private static void addWeaponstoGroup(Item items) { //normally meant to be static, but let's see how this works out.
+		addItemtoGroup(ItemGroups.COMBAT, items);
+	}
+
+	private static void addItemtoGroup(RegistryKey<ItemGroup> itemgroup, Item item) { //maybe make public/move to ModItems for reusability
+		//Using Fabric's API (Quilt doesn't support this yet...) this adds the item to the specified group.
+		//Maybe move this to a ModItems for ease of reading and usage...
+		ItemGroupEvents.modifyEntriesEvent(itemgroup).register(entries -> entries.addAfter(Items.TRIDENT, item));
+	}
+
+	public static void registerModItems() { //referenced in Main's 'OnInitialize', meant to be static
 		Alpha_WeaponsMain.LOGGER.debug("Registering Items for Mod: " + Alpha_WeaponsMain.MOD_ID);
+		addWeaponstoGroup(shotgun_placeholder);
+		addWeaponstoGroup(pistol_placeholder);
+		addWeaponstoGroup(rifle_placeholder);
+		addWeaponstoGroup(sword_placeholder);
+		//I wish I could use an array or a vector or anything to make this more concise but whatever :c
 	}
 }
